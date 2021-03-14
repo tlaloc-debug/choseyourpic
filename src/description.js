@@ -10,7 +10,9 @@ class Description extends React.Component {
 
     constructor(props){
         super(props)
-
+        
+        //textvalue are used to store the position of the green boxes so the user
+        //can see the text on the lcd by clicking a botton instead of hovering the pic
         this.state = {
             x: 0,
             y: 0,
@@ -60,13 +62,16 @@ class Description extends React.Component {
 
     render (){
 
+      //check the viewport, desktop or cell 
       const matches = window.innerWidth;
 
+      //by getting the cursor position over the pic we can change the text on the lcd
       let {x, y, position} = this.state;
 
       var text;
       var head;
 
+      //x, y values are the coordenates of the green boxes on the lcd
       if (matches>600) {
         head="";
         text="Hover the mouse over the PIC on te left and click inside any green box. You will see a quick description about the selected term in this screen.";

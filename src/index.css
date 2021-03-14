@@ -1,20 +1,26 @@
+
+/*     ----------     COMMON STYLE     ----------     */
 .header {
   display: flex;
   justify-content: center;
 }
 
-.textstylepc {
-  font-family: monospace;
-  font-size: 2em;
-  margin: 0px;
+.on{
+  display: block;
 }
 
-.textstylecell {
-  font-family: monospace;
-  font-size: 1.5em;
-  margin: 0px;
-  padding: 30px 0px;
+.out {
+  display: none;
 }
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+/*     ----------     END COMMON STYLE     ----------     */
+
+/*     ----------     INDEX STYLE     ----------     */
 
 .logopc{
   border-radius: 15px;
@@ -24,6 +30,29 @@
   border-radius: 15px;
   width: 100%;
   height: 50px;
+}
+
+.welcomepc {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.welcomecell {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+
+.salutationpc{
+  margin: 0px;
+}
+
+.salutationcell {
+  margin: 0px;
+  display: inline-block;
+  padding-right: 10px;
 }
 
 .sesionon {
@@ -89,6 +118,19 @@
   font-weight: bold;
 }
 
+.textstylepc {
+  font-family: monospace;
+  font-size: 2em;
+  margin: 0px;
+}
+
+.textstylecell {
+  font-family: monospace;
+  font-size: 1.5em;
+  margin: 0px;
+  padding: 30px 0px;
+}
+
 .bandpc {
   width: 90%;
   height: 10px;
@@ -142,22 +184,48 @@
   justify-content: space-around;
 }
 
-a {
-  text-decoration: none;
-  color: gray;
+.navpc {
+  width: 25%;
+  color: #44aaff;
+  text-align: center;
+  padding: 10px;
+  background-color: #001122;
 }
 
-.bywordon {
-  display: block;
+.navcell {
+  color: #44aaff;
+  text-align: center;
+  background-color: #001122;
+  padding: 10px;
+  margin: 5px 0px;
 }
 
-.bywordoff {
-  display: none;
+
+.footerpc {
+  width: 85%;
+  display: flex;
+  justify-content: center;
 }
+
+.footercell {
+  width: 100%;
+}
+
+/*     ----------     END INDEX STYLE     ----------     */
+
+/*     ----------     PRODUCTS STYLE     ----------     */
 
 .menu {
   position: absolute;
   display: none;
+}
+
+.spaceproductspc {
+  width: 85%;
+}
+
+.spaceproductscell {
+  width: 100%;
 }
 
 .selector {
@@ -171,14 +239,6 @@ a {
 th, td {
     border: 1px solid black;
   }
-
-.showoff{
-  display: none;
-}
-
-.showon{
-  display: block;
-}
 
 .flip-card {
   background-color: transparent;
@@ -229,6 +289,11 @@ th, td {
   transform: rotateX(180deg);
 }
 
+/*     ----------     END PRODUCTS STYLE     ----------     */
+
+
+/*     ----------     DESCRIPTION STYLE     ----------     */
+
 .effect:hover .vanish{
   opacity: 0.9;
 }
@@ -244,179 +309,7 @@ th, td {
 
 .transrigth{
   transition: transform 0.5s;
-  transform: translateX(300px);
-  
-}
-
-.navpc {
-  width: 25%;
-  color: #44aaff;
-  text-align: center;
-  padding: 10px;
-  background-color: #001122;
-}
-
-.navcell {
-  color: #44aaff;
-  text-align: center;
-  background-color: #001122;
-  padding: 10px;
-  margin: 5px 0px;
-}
-
-.on{
-  display: block;
-}
-
-.gallery {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-}
-
-.galleryelement{
-  text-align: center;
-}
-
-.avatar{
-  height: 100px;
-  width: 100px;
-}
-
-.micro{
-  height: 80px;
-  padding-bottom: 20px;
-}
-
-.checkoutformon {
-  display: block;
-  
-}
-
-.checkoutformoff {
-  display: none;
-  
-}
-
-.alerton {
-  display: inline-block;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.alertoff {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.finishon {
-  display: inline-block;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.finishoff {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.glasson{
-  display: block;
-  width: 100%;
-}
-
-.glassoff{
-  display: none;
-}
-
-.on {
-  display: block
-}
-
-.out {
-  display: none;
-}
-
-.footerpc {
-  width: 85%;
-  display: flex;
-  justify-content: center;
-}
-
-.footercell {
-  width: 100%;
-}
-
-.welcomepc {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-}
-
-.welcomecell {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 50px;
-}
-
-.salutationpc{
-  margin: 0px;
-}
-
-.salutationcell {
-  margin: 0px;
-  display: inline-block;
-  padding-right: 10px;
-}
-
-.push {
-  border: none;
-  font-weight: bold;
-}
-
-.spaceproductspc {
-  width: 85%;
-}
-
-.spaceproductscell {
-  width: 100%;
-}
-
-.picImaCell{
-  display: inline-block;
-}
-
-.picImaDesCell{
-  display: inline-block;
-  margin-left: 30px;
-}
-
-.buttonCenter {
-  width: 100%;
-}
-.buttonGallery {
-  display: flex;
-  justify-content: space-around;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
+  transform: translateX(300px); 
 }
 
 .lcdEffectpc {
@@ -490,3 +383,101 @@ th, td {
   height: 400px;
   width: 150px;
 }
+
+/*     ----------     END DESCRIPTION STYLE     ----------     */
+
+/*     ----------     SHOP STYLE     ----------     */
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.galleryelement{
+  text-align: center;
+}
+
+.avatar{
+  height: 100px;
+  width: 100px;
+}
+
+.micro{
+  height: 80px;
+  padding-bottom: 20px;
+}
+
+.alerton {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.alertoff {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.finishon {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.finishoff {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.glasson{
+  display: block;
+  width: 100%;
+}
+
+.glassoff{
+  display: none;
+}
+
+.push {
+  border: none;
+  font-weight: bold;
+}
+
+.picImaCell{
+  display: inline-block;
+}
+
+.picImaDesCell{
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.buttonCenter {
+  width: 100%;
+}
+.buttonGallery {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+/*     ----------     END SHOP STYLE     ----------     */

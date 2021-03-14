@@ -11,13 +11,21 @@ function Shop () {
 
     const matches = useMediaQuery({query: '(min-width:600px)'});
 
+    //gets saved shopping cart in case there is any
     const initialCart = JSON.parse(localStorage.getItem("cart")) || [""];
+
     const [List, setList]= useState([]);
+
+    //i represents the number of page 
     const [i,seti] = useState(0);
     const pages = [1,2,3,4,5,6,7];
     const [cart, setcart] = useState (initialCart);
     const [show, setshow] = useState (false);
+
+    //x represents the quantity of products on shopping cart
     const [x, setx]= useState (1);
+
+    //index represents the position of every itam in the cart
     const [index,setindex] = useState (cart[0]=="" ? cart.length-1 : cart.length);
     const [amount,setamount] = useState (0);
     const [allproducts, setallproducts] = useState(true);
@@ -27,6 +35,8 @@ function Shop () {
     const [showalert, setshowalert] = useState (false);
     const [finish, setfinish] = useState (false);
 
+    //make a post request with the pic name, after is done we make a get request to get the PIC
+    //information from the Database
     const searchPic = () => {
         axios.post("https://connectto.herokuapp.com/searchpicname", {picName: picSearch}).then((response1)=>{
             console.log(response1)
@@ -38,7 +48,7 @@ function Shop () {
         }
          
    
-
+    //get all products from Dtabase
     const view = () => {
         axios.get("https://connectto.herokuapp.com/shopall").then((response) => {
             setList(response.data)
@@ -57,6 +67,8 @@ function Shop () {
         seti((number-1)*25)
     }
 
+    //the ShopppingCart is a list of objetcs, every time we add an article we first create an object with the information
+    //then we add this object to the end of the list, finally we increase the "index" by 1  
     const addcart = (item, price) => {
         let myObj={id: index, article: item, quantity: x, price: price, total: price}
         cart[index]=(myObj);
@@ -72,6 +84,8 @@ function Shop () {
         setcart(cart);
     }
 
+    //to subtract an item, first we get the index with the "minus" parameter, the we make the subtraction
+    //and finally we recalculate the total amount for this article and the total amount in the cart 
     const less = (minus) =>{
         let counting=0;
         cart[minus].quantity = cart[minus].quantity-1;
@@ -86,6 +100,9 @@ function Shop () {
           
     }
 
+
+    //to add an item, first we get the index with the "plus" parameter, the we make the addition
+    //and finally we recalculate the total amount for this article and the total amount in the cart 
     const more = (plus) =>{
         let counting=0;
         cart[plus].quantity = cart[plus].quantity+1;
@@ -99,6 +116,9 @@ function Shop () {
         setamount(counting);       
     }
 
+    //to delete an item in the cart, first we get the index with the "position" parameter, then we delete the object
+    //on that position and reasign the id for the rest of the items (ex. [1,2,3,4] ==> [1,2,4] ==> [1,2,3]) with a map() funtion
+    //finally we recalculate the new amount with another map() function and set the "index" the new cart length
     const delitem = (position) => {
         cart.splice(position, 1);
         cart.map((dato, numero)=>{
@@ -116,10 +136,12 @@ function Shop () {
         setindex(cart.length);   
     }
 
+    //we save the ShoppingCart in localStorage every time the total amount is modified
     useEffect(()=> {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [amount],);
 
+    //the checkout function checks if the user has already logged in
     const checkout = () => {
         if ((cart[0]=="") || cart.length==0){
             alert("Your cart is empty, please select some products before you ckeckout")
@@ -164,7 +186,8 @@ function Shop () {
                     <button onClick={view}>All Products</button>
                     <div style={{position: "relative"}}>
                         <button onClick={seecart}>See cart</button>
-                        <div className={show ? "showon" : "showoff"} style={{position: "absolute", backgroundColor: "white", padding: "30px 30px", boxShadow: "5px 10px 18px #888888"}}>
+                        {/* DIV for the ShoppingCart */}
+                        <div className={show ? "on" : "out"} style={{position: "absolute", backgroundColor: "white", padding: "30px 30px", boxShadow: "5px 10px 18px #888888"}}>
                             {cart.map((items)=>{
                                 return (
                                     <div >
@@ -191,7 +214,7 @@ function Shop () {
                     </div>
                    
 
-                   
+                    {/* Gallery of products. 5x5 for Desktop, 1x25 for mobile devices */}
                     <div className={matches ? "gallery" : ""}>
                         {List.slice(i,i+5).map((micros, key) => {
                         return (
@@ -306,7 +329,12 @@ function Shop () {
                         )
                         })} 
                     </div>
+                    {/* END of Gallery */}
                     
+                    {/* Pagination menu
+                        Only visible if Gallery's length is higher than 25
+                        to get the number of pages we divide the Gallery's length by 25
+                        every time the user clicks on "next page" increases i by 1 */}
                     <div className={List.length>25 ? "pagination" : "out"}>
                         <button onClick={previouspage}> previous page</button>
                         {pages.slice(0, (Math.trunc((List.length)/25))+1).map((page) => {
@@ -316,7 +344,7 @@ function Shop () {
                     </div>
                 </div>
 
-
+                {/* In case user hasn't logged in, he can continue as guest */}
                 <div className={showalert ? "alerton" : "alertoff"} style={{backgroundColor: "white", padding: "30px 30px", boxShadow: "5px 10px 18px #888888"}}>
                     <h2>Seems like you havent Log in</h2>
                     <div style={{display: "flex", justifyContent: "space-around"}}>
@@ -327,8 +355,10 @@ function Shop () {
                         </div>
                     </div>    
                 </div>
-                    
-                <div className={showcheckout ? "checkoutformon" : "checkoutformoff"}>
+
+
+                {/* Personal information to checkout */}    
+                <div className={showcheckout ? "on" : "out"}>
 
                     
                     <div style={{ display: "flex", justifyContent: "space-around"}}>

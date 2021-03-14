@@ -17,16 +17,17 @@ import { useMediaQuery } from 'react-responsive';
 
 function App() {
 
+    //check viewport, desktop or cell
     const matches = useMediaQuery({query: '(min-width:600px)'});
 
+    //load login information in case of reload page
     const initialsesionsave = JSON.parse(localStorage.getItem("savesesion")) || [""];
 
-    
+    //hide secondary menu
     const [technical, settechnical] = useState(false);
     const [concept, setconcept] = useState(matches ? true : false);
     const [shop, setshop] = useState(false);
     const [checkout, setcheckout] = useState(false);
-
 
     const bcrypt = require('bcryptjs');
     
@@ -49,16 +50,18 @@ function App() {
         setshop(true);
     }
 
+    //variables for Register
     const [userNameReg, setuserNameReg] = useState ("");
     const [passReg, setpassReg] = useState ("");
-    const [passReghash, setpassReghash] = useState("");
+    //const [passReghash, setpassReghash] = useState("");
     const [responseReg, setresponseReg] = useState("null");
 
+    //variables for Login
     const [userName, setuserName] = useState ("");
     const [pass, setpass] = useState ("");
     const [responseLog, setresponseLog] = useState("");
     
-    const [text, settext]= useState("");
+    //const [text, settext]= useState("");
 
     const [user, setuser] = useState (initialsesionsave.usersave || "");
     const [sesion, setsesion] = useState (initialsesionsave.sesionsave || false);
@@ -69,6 +72,9 @@ function App() {
     const [menulogout, setmenulogout] = useState (false);
     const cuadro = ["", avatar1, avatar2, avatar3, avatar4];
 
+    //make a post request with "username" to check existence on Database, if exists
+    //compare hash from Database with "password" supplied on input area, if they match
+    //save information in localStorage in case the user reloads the page 
     const login = () => {
         Axios.post("https://connectto.herokuapp.com/loginname", {username: userName}).then((response1)=> {
             if (response1.data=="done"){
@@ -94,7 +100,8 @@ function App() {
         })
     }
               
-                    
+    //save information in Database
+    //"password" is hidden using bcrypt                
     const register = () => {
         if (userNameReg===""){
             alert("no")
@@ -106,6 +113,7 @@ function App() {
         }
     }
 
+    //text to show in case of Register
     const IsRegister = () => {
         if (responseReg.rowCount==1){
             setinputsReg(false);
@@ -119,6 +127,7 @@ function App() {
         }
     }
 
+    //text to show in case of Login
     const IsLogin = () => {
         return <div>{responseLog}</div>
     }
@@ -132,6 +141,7 @@ function App() {
         setinputsReg(true);
     }
 
+    //in case of logout, delete login information from localStorage
     const logout = () => {
         let myObj={usersave: "", sesionsave: false, inputssesion: false, imagensesion: ""}
         localStorage.setItem("savesesion", JSON.stringify(myObj));
@@ -152,6 +162,7 @@ function App() {
             <div className={"header"} style={{position: "relative"}}>
             <img src={logo} className={matches ? "logopc" : "logocell"} alt="logo"/><br/><br/> 
 
+                {/* Show Login and Register buttons hide itself in case of Login */}
                 <div className={sesion ? "out" : "sesionon"}> 
                     <div className={matches ? "issessionpc" : "issessioncell"}>
                         <button onClick={seeinputs}>Log in</button>
@@ -159,6 +170,7 @@ function App() {
                     </div>
                 </div>
 
+                {/* Show Login information in case of Login */}
                 <div className={sesion ? "sesionon" : "out"}>
                     <div className={matches ? "welcomepc" : "welcomecell"}> 
                         <div >
@@ -174,11 +186,12 @@ function App() {
                     </div>
                 </div>
                     
-
+                {/* LOGIN INPUTS DIV
+                    show inputs for username and password in case a user wants to login */}
                 <div className={inputs ? "inputson" : "out"}>
                     <div className={matches ? "header" : ""}>
                         <div>
-                            <label style={{display: "block", padding: "8px"}}>uername</label>
+                            <label style={{display: "block", padding: "8px"}}>username</label>
                             <div className={matches ? "on" : "out"}><label style={{display: "block", padding: "8px"}}>password</label></div>
                         </div>
                         <div>
@@ -193,6 +206,9 @@ function App() {
                     <IsLogin />
                 </div>
 
+
+                {/* REGISTER INPUTS DIV
+                    show inputs for username and password in case a user wants to Register */}
                 <div className={inputsReg ? "inputsRegon" : "out"}>
                     <div className={matches ? "header" : ""}>
                         <div>
@@ -240,6 +256,7 @@ function App() {
                 <div className={matches ? "maintextpc" : "maintextcell"}><p className={matches ? "textstylepc" : "textstylecell"}> choseyourpic.com is a site that allows you to select the correct microcontroller for your project by listing the specifications of almost all available microcontroller in the market.   </p ></div>
             </div>
 
+            {/* DIV with the main three columns of the page*/}
             <div className={matches ? "header" : ""}>
                 <div className={matches ? "mainmenupc" : "mainmenucell"} onClick={technicalclick}>
                     <div className={"header"}>

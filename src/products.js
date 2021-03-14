@@ -6,6 +6,8 @@ function Products() {
 
   const matches = useMediaQuery({query: '(min-width:600px)'});
 
+  //connects to 000webhost MySQL Database since Heroku uses postgresql
+  //cade can be seen on tlaloc-debug/000webhost repository
   return (
     <div>
       <div className={"header"}>
