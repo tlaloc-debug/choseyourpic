@@ -1,0 +1,492 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.textstylepc {
+  font-family: monospace;
+  font-size: 2em;
+  margin: 0px;
+}
+
+.textstylecell {
+  font-family: monospace;
+  font-size: 1.5em;
+  margin: 0px;
+  padding: 30px 0px;
+}
+
+.logopc{
+  border-radius: 15px;
+}
+
+.logocell{
+  border-radius: 15px;
+  width: 100%;
+  height: 50px;
+}
+
+.sesionon {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.issessionpc{
+  display: flex;
+  justify-content: center;
+  width: 30%; 
+  padding-top: 50px;
+}
+
+.issessioncell{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.maintextpc{
+  width: 80%;
+  height: 100px;
+  margin: 10px 0px;
+}
+
+.maintextcell{
+  width: 100%;
+  height: 180px;
+  margin: 30px 0px;
+}
+
+.clicimages {
+  width: 100%;
+  height: 270px;
+}
+
+.mainmenupc{
+  width: 25%;
+  height: 400px;
+}
+
+.mainmenucell {
+  width: 100%;
+  height: 120px;
+}
+
+.clictitlepc{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.clictitlecell{
+  position: relative;
+  margin-top: -35px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.bandpc {
+  width: 90%;
+  height: 10px;
+}
+
+.bandcell{
+  width: 90%;
+  height: 50px;
+}
+
+.clictextpc {
+  width: 100%;
+  height: 70px;
+  text-align: center;
+}
+
+.clictextcell {
+  width: 80%;
+  height: 100px;
+  text-align: center;
+  margin-left: 10%;
+}
+
+.inputson {
+  z-index: +1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px 30px;
+  box-shadow: 5px 10px 18px #888888;  
+}
+
+.inputsRegon {
+  z-index: +1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px 30px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.topnav{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+.bywordon {
+  display: block;
+}
+
+.bywordoff {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  display: none;
+}
+
+.selector {
+  position: relative;
+}
+
+.selector:hover .menu {
+  display: block;
+}
+
+th, td {
+    border: 1px solid black;
+  }
+
+.showoff{
+  display: none;
+}
+
+.showon{
+  display: block;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100px;
+  perspective: 1000px;
+}
+
+.flip-card-after {
+  background-color: transparent;
+  width: 100%;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner-after {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateX(180deg);
+}
+
+.effect:hover .vanish{
+  opacity: 0.9;
+}
+
+.vanish {
+  opacity: 0;
+}
+
+.transleft{
+  transition: transform 0.5s;
+  transform: translateX(0px);
+}
+
+.transrigth{
+  transition: transform 0.5s;
+  transform: translateX(300px);
+  
+}
+
+.navpc {
+  width: 25%;
+  color: #44aaff;
+  text-align: center;
+  padding: 10px;
+  background-color: #001122;
+}
+
+.navcell {
+  color: #44aaff;
+  text-align: center;
+  background-color: #001122;
+  padding: 10px;
+  margin: 5px 0px;
+}
+
+.on{
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.galleryelement{
+  text-align: center;
+}
+
+.avatar{
+  height: 100px;
+  width: 100px;
+}
+
+.micro{
+  height: 80px;
+  padding-bottom: 20px;
+}
+
+.checkoutformon {
+  display: block;
+  
+}
+
+.checkoutformoff {
+  display: none;
+  
+}
+
+.alerton {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.alertoff {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.finishon {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.finishoff {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.glasson{
+  display: block;
+  width: 100%;
+}
+
+.glassoff{
+  display: none;
+}
+
+.on {
+  display: block
+}
+
+.out {
+  display: none;
+}
+
+.footerpc {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+.footercell {
+  width: 100%;
+}
+
+.welcomepc {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.welcomecell {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+
+.salutationpc{
+  margin: 0px;
+}
+
+.salutationcell {
+  margin: 0px;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.push {
+  border: none;
+  font-weight: bold;
+}
+
+.spaceproductspc {
+  width: 85%;
+}
+
+.spaceproductscell {
+  width: 100%;
+}
+
+.picImaCell{
+  display: inline-block;
+}
+
+.picImaDesCell{
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.buttonCenter {
+  width: 100%;
+}
+.buttonGallery {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.lcdEffectpc {
+  width: 1000px;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.lcdEffectcell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.picEffectpc {
+  position: absolute;
+  width: 150; 
+  margin-top: 40px;
+}
+
+.showPicEffectpc {
+  width: 150px;
+  display: flex;
+}
+
+.showlcdeffectpc{
+  width: 500px;
+  position: absolute;
+}
+
+.showlcdeffectcell {
+  transform: rotate(90deg);  
+  width: 260%;
+  margin-left: -150px;
+}
+
+.boxforlcdpc{
+  width: 500px;
+  position: relative;
+  z-index: -1;
+}
+
+.boxforlcdcell{
+  padding-top: 100px;;
+  height: 500px;
+}
+
+.bluebar {
+  position: absolute;
+  height: 40px;
+  width: 300px;
+  margin-left: 150px;
+  margin-top: 300px;
+  background-color: blue;
+  z-index: -1;
+}
+
+.textinlcdpc{
+  position: absolute;
+  margin-left: 45px;
+  margin-top: 80px;
+  height: 140px;
+  width: 400px;
+}
+
+.textinlcdcell{
+  position: absolute;
+  margin-left: 40px;
+  margin-top: -380px;
+  height: 400px;
+  width: 150px;
+}
