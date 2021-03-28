@@ -200,7 +200,6 @@ a {
   margin: 5px 0px;
 }
 
-
 .footerpc {
   width: 85%;
   display: flex;
@@ -209,6 +208,96 @@ a {
 
 .footercell {
   width: 100%;
+}
+
+.chipbox {
+  position: relative;
+}
+
+.chip {
+  position: absolute;
+  left: 50px;
+  display: block;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.chipcolor {
+  position: absolute;
+  left: 125px;
+  top: 105px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+
+.chipbox:hover .chipcolor{
+  background-color: #f68d2e;
+  transform: scale(5);
+  transform-origin: 50% 50%;
+}
+
+.bookbox {
+  position: relative;
+}
+
+.book {
+  position: absolute;
+  left: 50px;
+  display: block;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.bookcolor {
+  position: absolute;
+  left: 125px;
+  top: 105px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+
+.bookbox:hover .bookcolor{
+  background-color: #41b6e6;
+  transform: scale(5);
+  transform-origin: 50% 50%;
+}
+
+.shopbox {
+  position: relative;
+}
+
+.shop {
+  position: absolute;
+  left: 50px;
+  display: block;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.shopcolor {
+  position: absolute;
+  left: 125px;
+  top: 105px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+
+.shopbox:hover .shopcolor{
+  background-color: #6cc24a;
+  transform: scale(5);
+  transform-origin: 50% 50%;
 }
 
 /*     ----------     END INDEX STYLE     ----------     */

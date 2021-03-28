@@ -13,8 +13,10 @@ function Shop () {
 
     //gets saved shopping cart in case there is any
     const initialCart = JSON.parse(localStorage.getItem("cart")) || [""];
+    const initialamount = JSON.parse(localStorage.getItem("amount")) || 0;
 
     const [List, setList]= useState([]);
+    const [exist, setexist] = useState(true);
 
     //i represents the number of page 
     const [i,seti] = useState(0);
@@ -27,7 +29,7 @@ function Shop () {
 
     //index represents the position of every itam in the cart
     const [index,setindex] = useState (cart[0]=="" ? cart.length-1 : cart.length);
-    const [amount,setamount] = useState (0);
+    const [amount,setamount] = useState (initialamount);
     const [allproducts, setallproducts] = useState(true);
     const [picSearch, setpicSearch] = useState("");
 
@@ -70,13 +72,20 @@ function Shop () {
     //the ShopppingCart is a list of objetcs, every time we add an article we first create an object with the information
     //then we add this object to the end of the list, finally we increase the "index" by 1  
     const addcart = (item, price) => {
-        let myObj={id: index, article: item, quantity: x, price: price, total: price}
-        cart[index]=(myObj);
-        console.log(cart);
-        setindex(index+1);
-        cart.map((dato)=>{
-            setamount(amount+dato.total);
+        let listofArticles=[];
+        cart.map((existence)=>{
+            listofArticles.push(existence.article)
         })
+        if (listofArticles.find(findArticle => findArticle==item)) {
+            alert("This item is already on cart")
+        } else {
+            let myObj={id: index, article: item, quantity: x, price: price, total: price}
+            cart[index]=(myObj);
+            setindex(index+1);
+            cart.map((dato)=>{
+                setamount(amount+dato.total);
+            }) 
+        }
     }
 
     const seecart = () => {
@@ -87,17 +96,18 @@ function Shop () {
     //to subtract an item, first we get the index with the "minus" parameter, the we make the subtraction
     //and finally we recalculate the total amount for this article and the total amount in the cart 
     const less = (minus) =>{
-        let counting=0;
-        cart[minus].quantity = cart[minus].quantity-1;
-        cart[minus].total = cart[minus].quantity * cart[minus].price;
-        setcart(cart);
+        if (cart[minus].quantity>1){
+            let counting=0;
+            cart[minus].quantity = cart[minus].quantity-1;
+            cart[minus].total = cart[minus].quantity * cart[minus].price;
+            setcart(cart);
 
-        cart.map((dato)=>{
-            counting = counting+dato.total;
-        })
+            cart.map((dato)=>{
+                counting = counting+dato.total;
+            })
 
-        setamount(counting);     
-          
+            setamount(counting);     
+        }
     }
 
 
@@ -139,6 +149,7 @@ function Shop () {
     //we save the ShoppingCart in localStorage every time the total amount is modified
     useEffect(()=> {
         localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("amount", JSON.stringify(amount));
     }, [amount],);
 
     //the checkout function checks if the user has already logged in
@@ -229,7 +240,7 @@ function Shop () {
                                 </div>
                                 <div className={"buttonCenter"}>
                                     <div className={"buttonGallery"}>
-                                        <button id={micros.productshop}>Buy</button>
+                                        <button id={micros.productshop} onClick={checkout}>Buy</button>
                                         <button id={micros.productshop} onClick={(ev) => addcart(ev.target.id, micros.price)}>Cart</button>
                                     </div>
                                 </div>
@@ -252,7 +263,7 @@ function Shop () {
                                 </div>
                                 <div className={"buttonCenter"}>
                                     <div className={"buttonGallery"}>
-                                        <button id={micros.productshop}>Buy</button>
+                                        <button id={micros.productshop} onClick={checkout}>Buy</button>
                                         <button id={micros.productshop} onClick={(ev) => addcart(ev.target.id, micros.price)}>Cart</button>
                                     </div>
                                 </div>
@@ -275,7 +286,7 @@ function Shop () {
                                 </div>
                                 <div className={"buttonCenter"}>
                                     <div className={"buttonGallery"}>
-                                        <button id={micros.productshop}>Buy</button>
+                                        <button id={micros.productshop} onClick={checkout}>Buy</button>
                                         <button id={micros.productshop} onClick={(ev) => addcart(ev.target.id, micros.price)}>Cart</button>
                                     </div>
                                 </div>
@@ -298,7 +309,7 @@ function Shop () {
                                 </div>
                                 <div className={"buttonCenter"}>
                                     <div className={"buttonGallery"}>
-                                        <button id={micros.productshop}>Buy</button>
+                                        <button id={micros.productshop} onClick={checkout}>Buy</button>
                                         <button id={micros.productshop} onClick={(ev) => addcart(ev.target.id, micros.price)}>Cart</button>
                                     </div>
                                 </div>
@@ -321,7 +332,7 @@ function Shop () {
                                 </div>
                                 <div className={"buttonCenter"}>
                                     <div className={"buttonGallery"}>
-                                        <button id={micros.productshop}>Buy</button>
+                                        <button id={micros.productshop} onClick={checkout}>Buy</button>
                                         <button id={micros.productshop} onClick={(ev) => addcart(ev.target.id, micros.price)}>Cart</button>
                                     </div>
                                 </div>
@@ -383,12 +394,11 @@ function Shop () {
                             <label htmlFor="">Name on Card</label><br/>
                             <input type="text"/><br/><br/><br/>
                             <label htmlFor="">Credit Card Number</label><br/>
-                            <input type="text"/><br/><br/><br/>
+                            <input type="text" value="XXXX-XXXX-XXXX" disabled="disabled"/><br/><br/><br/>
                             <label htmlFor="">Expiration</label><br/>
-                            <input type="text" style={{position: "absolute", width: "50%"}}/>
-                            <input type="text"/><br/><br/><br/>
+                            <input type="text" value="September-2025" disabled="disabled" /><br/><br/><br/>
                             <label htmlFor="">CVV</label><br/>
-                            <input type="text"/><br/>
+                            <input type="text" value="XXX" disabled="disabled"/><br/>
                         
                         </div>
                     </div>

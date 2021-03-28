@@ -15,6 +15,7 @@ import avatar3 from "./avatar3.jpeg";
 import avatar4 from "./avatar4.jpeg";
 import { useMediaQuery } from 'react-responsive';
 
+
 function App() {
 
     //check viewport, desktop or cell
@@ -264,7 +265,10 @@ function App() {
                     </div>
 
                     <div className={matches ? "clicimages" : "out"}>
-                            <img style={{display: "block", margin: "auto", paddingTop: "30px"}} src={chip} alt=""/>
+                        <div className={"chipbox"} >
+                            <div className={"chipcolor"}></div>
+                            <img className={"chip"} src={chip} alt=""/>
+                        </div>
                     </div>
                     
                     <div className={matches ? "clictitlepc" : "clictitlecell"}> Technical</div>
@@ -277,7 +281,10 @@ function App() {
                     </div>
 
                     <div className={matches ? "clicimages" : "out"}>
-                            <img style={{display: "block", margin: "auto", paddingTop: "30px"}} src={manual} alt=""/>
+                        <div className={"bookbox"} >
+                            <div className={"bookcolor"}></div>
+                            <img className={"book"} src={manual} alt=""/>
+                        </div>
                     </div>
                     
                     <div className={matches ? "clictitlepc" : "clictitlecell"}> Manual</div>
@@ -290,7 +297,10 @@ function App() {
                     </div>
 
                     <div className={matches ? "clicimages" : "out"}>
-                            <img style={{display: "block", margin: "auto", paddingTop: "30px"}} src={cart} alt=""/>
+                        <div className={"shopbox"} >
+                            <div className={"shopcolor"}></div>
+                            <img className={"shop"} src={cart} alt=""/>
+                        </div>
                     </div>
                     
                     <div className={matches ? "clictitlepc" : "clictitlecell"}> Shop</div>
